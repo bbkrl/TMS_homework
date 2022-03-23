@@ -9,12 +9,17 @@ def print_hi(name):
     print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
 
 
-def func(a, b):
+def func_plus(a, b):
     return a + b
+
+
+def func_minus(a, b):
+    return a-b
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print_hi('GIT')
-    func(10, 20)
+    func_plus(10, 20)
+    func_minus(20, 10)
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

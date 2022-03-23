@@ -1,3 +1,3 @@
-# git and github course
+# TeachMeSkills
 
-crash course for git
+TeachMeSkills homework

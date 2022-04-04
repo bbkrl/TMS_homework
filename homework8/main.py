@@ -45,33 +45,24 @@ class Car(Engine, Wheel):
     из метода generate_power) * длинна заезда
     """
 
-    def __init__(self, start_engine: bool, horse_power: int, turbine: bool, wheel_weight: int, wheel_diameter: int,
+    def __init__(self, horse_power: int, turbine: bool, wheel_weight: int, wheel_diameter: int,
                  num_of_wheel: int):
         Engine.__init__(self, horse_power, turbine)
         Wheel.__init__(self, wheel_weight, wheel_diameter)
-        self.start_engine = start_engine
         self.num_of_wheel = num_of_wheel
         self.__passenger = 1200
         self.__truck = 1800
         self.__jeep = 1500
 
-    # def start_engine(self, key: int) -> bool:
-    #     if key:
-    #         engine_running = True
-    #         print('Двигатель запущен')
-    #         return engine_running
-    #
-    #     else:
-    #         engine_running = False
-    #         print('Двигатель выключен')
-    #         return engine_running
-
-    def move(self, distance: int) -> float:
-        if not self.start_engine:
+    def engine_start_func(self, start_engine_key: bool):
+        if not start_engine_key:
             raise Exception("Двигатель не запущен!")
+
+    def move(self, distance: int, key: bool) -> float:
+        self.engine_start_func(key)
         move_time = ((self.wheel_weight * self.num_of_wheel + self.__jeep) * distance) / self.generate_power()
         return move_time
 
 
-car1 = Car(1, 639, False, 20, 19, 4)
-print(car1.move(100))
+car1 = Car(639, False, 20, 19, 4)
+print(car1.move(100, True))

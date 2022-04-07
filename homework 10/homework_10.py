@@ -51,8 +51,8 @@ class Main(Frame):
         elif operation == "=":
             try:
                 self.formula = str(eval(self.formula))
-            except ZeroDivisionError:
-                self.formula = "Error"
+            except ZeroDivisionError as e:
+                self.formula = ["ERROR: ", e]
         else:
             if self.formula == "0":
                 self.formula = ""

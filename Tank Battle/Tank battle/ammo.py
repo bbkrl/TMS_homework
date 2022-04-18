@@ -1,5 +1,5 @@
 import gun
-import enum
+# import enum
 
 
 class Ammo(object):
@@ -10,16 +10,7 @@ class Ammo(object):
         -type (фугасный, кумулятивный, подкалиберный)
     """
 
-    SHELL_TYPE = enum.Enum(
-        value='SHELL_TYPES',
-        names=[
-            ('high_explosive_shell', "HECartridge"),  # фугасный
-            ("hollow-charge shell", "HEATCartridge"),  # кумулятивный
-            ("seb-caliber shell", "APCartridge")  # подкалиберный
-        ],
-    )
-
-    def __init__(self, gun: gun, shell_type: SHELL_TYPE):
+    def __init__(self, gun: gun, shell_type: str):
         self.gun = gun
         self.shell_type = shell_type
 
@@ -38,19 +29,25 @@ class HECartridge(Ammo):
     """класс фугасных снарядов.
     метод get_damage никак не изменяется"""
 
-    def get_damage(self):
-        return super().get_damage()
+    def __init__(self, gun: gun.Gun):
+        super().__init__(gun, 'фугасный')
 
 
 class HEATCartridge(Ammo):
     """класс кумулятивный снаряд"""
 
+    def __init__(self, gun: gun.Gun):
+        super().__init__(gun, 'кумулятивный')
+
     def get_damage(self):
-        super().get_damage() * 0.6
+        return super().get_damage() * 0.6
 
 
 class APCartridge(Ammo):
     """класс подкалиберного снаряда"""
+
+    def __init__(self, gun: gun.Gun):
+        super().__init__(gun, 'подкалиберный')
 
     def get_damage(self):
         return super().get_damage() * 0.3

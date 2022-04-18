@@ -1,3 +1,6 @@
+from random import triangular
+
+
 class Gun(object):
     """класс отвечает за калибр и длину ствола.
     От калибра зависит урон, и, частично, способность к пробитию брони.
@@ -14,6 +17,6 @@ class Gun(object):
         возвращает результат bool
         формула расчета: ({длинна пушки) *{dice}) > 100
         """
-        from random import triangular
+
         rand = triangular(1.0, 6.0)
         return True if self.barrel_length * rand > 100 else False

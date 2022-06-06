@@ -1,0 +1,4 @@
+# Django
+export ONLINE_SHOP_SECRET_KEY='django-insecure-oa#1*=8@5tsi-8c58dh4&83=lt%vpwasp(19qbot0i%tiq+khf'
+export ONLINE_SHOP_DEBUG=True
+export ONLINE_SHOP_ALLOWED_HOSTS='*'

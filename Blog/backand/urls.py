@@ -18,5 +18,6 @@ from backand import views
 
 urlpatterns = [
     path('', views.index),
-    path('about', views.about)
+    path('about', views.about),
+    path('signin', views.signin)
 ]
